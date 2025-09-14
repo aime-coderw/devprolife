@@ -22,7 +22,6 @@ body {
 
 .navbar ul {
   list-style: none;
-  display: flex;
   gap: 20px;
 }
 
@@ -306,61 +305,44 @@ section {
 .social-links svg {
   font-size: 1.2rem;
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #161b22;
-  position: relative;
-  z-index: 100;
-}
-
-.logo-img {
-  height: 40px;
-  cursor: pointer;
-}
-
-.nav-links {
+/* Hamburger button */
+.navbar-links {
+  list-style: none;
   display: flex;
   gap: 20px;
-  list-style: none;
 }
 
-.nav-links li {
+.navbar-links li {
   cursor: pointer;
   transition: color 0.2s;
-  color: white;
 }
 
-.nav-links li:hover {
-  color: #58a6ff;
-}
-
+/* Hamburger button */
 .hamburger {
   display: none;
-  font-size: 1.5rem;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
   background: none;
   border: none;
-  color: white;
-  cursor: pointer;
 }
 
-/* Responsive */
+/* Mobile view */
 @media screen and (max-width: 768px) {
-  .nav-links {
+  .navbar-links {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     position: absolute;
     top: 60px;
-    left: 0;
-    right: 0;
+    right: 20px;
     background: #161b22;
-    padding: 10px 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   }
 
-  .nav-links.open {
+  .navbar-links.open {
     display: flex;
   }
 

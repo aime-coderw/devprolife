@@ -8,20 +8,33 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react
 
 
 function Navbar({ setActiveTab }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (tab) => {
+    setActiveTab(tab);
+    setIsOpen(false); // close menu when a link is clicked
+  };
+
   return (
     <nav className="navbar">
       <img src={logo} alt="DevProlife Logo" className="logo-img" />
-      <ul>
-        <li onClick={() => setActiveTab("home")}>Home</li>
-        <li onClick={() => setActiveTab("projects")}>Projects</li>
-        <li onClick={() => setActiveTab("blog")}>Blog</li>
-        <li onClick={() => setActiveTab("about")}>About</li>
-        <li onClick={() => setActiveTab("contact")}>Contact</li>
-        <li onClick={() => setActiveTab("admin")}>Admin</li>
+
+      <ul className={`navbar-links ${isOpen ? "open" : ""}`}>
+        <li onClick={() => handleClick("home")}>Home</li>
+        <li onClick={() => handleClick("projects")}>Projects</li>
+        <li onClick={() => handleClick("blog")}>Blog</li>
+        <li onClick={() => handleClick("about")}>About</li>
+        <li onClick={() => handleClick("contact")}>Contact</li>
+        <li onClick={() => handleClick("admin")}>Admin</li>
       </ul>
+
+      <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        ☰
+      </button>
     </nav>
   );
 }
+
 
 function Projects({ projects }) {
   return (
