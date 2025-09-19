@@ -42,15 +42,18 @@ function Projects({ projects }) {
       <h3>📱 Our Apps</h3>
       <div className="projects-grid">
         {projects.map((project) => (
-          <div key={project.id} className="project-card">
+          <div
+            key={project.id}
+            className="project-card bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
+          >
             <img
               src={project.image_url}
               alt={project.title}
-              className="project-img"
+              className="project-img w-full h-32 object-cover top-5"
             />
-            <div className="project-content">
-              <h4>{project.title}</h4>
-              <p>
+            <div className="project-content p-3">
+              <h4 className="font-semibold text-sm">{project.title}</h4>
+              <p className="text-xs text-gray-600">
                 {project.description.length > 120
                   ? project.description.substring(0, 120) + "..."
                   : project.description}
@@ -60,7 +63,7 @@ function Projects({ projects }) {
                   href={project.apk_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="download-btn"
+                  className="download-btn text-blue-600 hover:underline block mt-2 text-xs"
                 >
                   Download APK →
                 </a>

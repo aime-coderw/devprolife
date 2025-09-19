@@ -66,10 +66,26 @@ section {
 /* Grid Layout */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* exactly 4 columns */
-  gap: 2rem; /* space between cards */
-  max-width: 1200px; /* wider container */
-  margin: 0 auto;
+  gap: 1rem;          /* adjust spacing between cards */
+  max-width: 1200px;  /* keeps layout centered on big screens */
+  margin: 0 auto;     /* center horizontally */
+}
+
+/* Responsive breakpoints like Tailwind */
+.projects-grid {
+  grid-template-columns: repeat(2, 1fr); /* default: 2 cols */
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr); /* sm: 3 cols */
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(6, 1fr); /* md: 6 cols */
+  }
 }
 
 
@@ -92,6 +108,7 @@ section {
   width: 60%;
   height: auto;   /* adjust height automatically */
   object-fit: contain; /* show full image */
+  margin-top: 5%;
 }
 
 
@@ -100,8 +117,8 @@ section {
 }
 
 .project-content h4 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.20rem;
+  margin-bottom: 0rem;
 }
 
 .project-content p {
@@ -131,6 +148,7 @@ section {
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   overflow: hidden;
   cursor: pointer;
+  gap: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -349,4 +367,11 @@ section {
   .hamburger {
     display: block;
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem; /* spacing between blog cards */
+  max-width: 1200px;
+  margin: 0 auto;
 }
